@@ -10,12 +10,17 @@
   </div>
   <div id="headerMain">
   <div id="headerWrapper">
-      <img id="headerImg" src="../assets/BlinkMobile_Logo.png"></img><h1 id="headerTitle" class="md-title" style="flex: 1">{{ msg }}</h1> 
+    <div id="headerImg" >
+      <img src="../assets/BlinkMobile_Logo.png"></img>
+    </div>
+    <div id="headerTitle">
+       <h1>{{msg}}</h1> 
+    </div>
       
       </div>
       <h3>Build. Deploy. Manage.</h3>
       </div>
-          <div v-for="service in services" class="serviceCards">
+          <div v-for="service in services" class="serviceCards" v-bind:key="service">
               <md-card id="serviceCard">
                 <md-card-header>
                   <md-card-header-text>
@@ -29,7 +34,7 @@
                 </md-card-header>
 
                 <md-card-content>
-                <ul v-for="link in service.links">
+                <ul v-for="link in service.links" v-bind:key="link">
                   <li >
                     {{link.url}}
                   </li>
@@ -42,10 +47,15 @@
                 </md-card-actions> 
               </md-card> 
             </div> 
+            <div>
+
+              </div>
           </div>
+
 </template>
 
 <script>
+
 export default {
   name: 'home',
   data() {
@@ -58,7 +68,8 @@ export default {
           imgSrc: "static/clientcli_conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
             }
           }
         },
@@ -115,7 +126,9 @@ export default {
             }
           }
         }
-      } 
+      },
+      rss: {}
+
     }
   }
 }
@@ -126,6 +139,8 @@ export default {
 h1,
 h2 {
   font-weight: normal;
+  display: table-cell;
+  padding-left: 6px;
 }
 
 ul {
@@ -155,25 +170,24 @@ a {
 }
 
 .serviceCards{
-  margin: 15px;
+  margin: auto 0;
   width: 30%;
+  margin-bottom: 30px;
   display:inline-block;
 }
 
 #serviceCard{
   min-height: 300px;
-
+  max-width: 500px;
 }
 
 #headerMain{
   width: 100%;
-  align: center;
   margin-bottom: 150px;
 
 }
 
 #headerImg{
-  float: left;
   width: 200px;
   display: table-cell; 
   vertical-align: bottom;
@@ -188,12 +202,8 @@ a {
 }
 
 #headerTitle{
-  float: right;
   display: table-cell; 
   vertical-align: bottom;
-  height: 10px;
-
-
 }
 
 #menuList{

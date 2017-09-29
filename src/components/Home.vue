@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+   <md-whiteframe md-elevation="2">
+   <div id="topSection">
   <div id="menu">
   <ul id="menuList">
     <li>Developers Blog</li>
@@ -17,9 +19,17 @@
        <h1>{{msg}}</h1> 
     </div>
       
-      </div>
+    </div>
       <h3>Build. Deploy. Manage.</h3>
-      </div>
+    </div>
+    </div>
+   </md-whiteframe>
+  
+  <div id="servicesHeader">
+  <h1> Services </h1>
+  <md-divider></md-divider>
+  </div>
+
           <div v-for="service in services" class="serviceCards" v-bind:key="service">
               <md-card id="serviceCard">
                 <md-card-header>
@@ -70,6 +80,18 @@ export default {
             "link1": {
               text: "url1link",
               url: ""
+            },
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         },
@@ -79,7 +101,20 @@ export default {
           imgSrc: "static/server-cli-conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
+            },
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         },
@@ -89,7 +124,20 @@ export default {
           imgSrc: "static/buildbot-cli-conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
+            },
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         },
@@ -99,7 +147,20 @@ export default {
           imgSrc: "static/forms_conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
+            },
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         },
@@ -109,7 +170,20 @@ export default {
           imgSrc: "static/analytics_conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
+            },
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         },
@@ -119,10 +193,20 @@ export default {
           imgSrc: "static/console_conf.png",
           links: {
             "link1": {
-              url: "url1link"
+              text: "url1link",
+              url: ""
             },
-            "link2": {
-              url: "url2link"
+            "link2":{
+              text: "",
+              url: ""
+            },
+            "link3":{
+              text: "",
+              url: ""
+            },
+            "link4":{
+              text: "",
+              url: ""
             }
           }
         }
@@ -136,11 +220,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello{
+  background-color: #ebebeb;
+}
+
+#topSection{
+  background-color: #fff;
+  margin-bottom: 30px;
+}
 h1,
 h2 {
   font-weight: normal;
   display: table-cell;
   padding-left: 6px;
+  padding-bottom: 5px;
 }
 
 ul {
@@ -161,6 +254,13 @@ a {
   display: inline-block;
 }
 
+#servicesHeader{
+  margin-left: 40px;
+  margin-top: 20px;
+  Margin-bottom: 30px;
+  margin-right: 40px;
+}
+
 #btnSmallNpm{
   width: 40px;
 }
@@ -174,6 +274,8 @@ a {
   width: 30%;
   margin-bottom: 30px;
   display:inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #serviceCard{
@@ -214,5 +316,5 @@ a {
 #linksList{
     
 }
-
+/**/
 </style>

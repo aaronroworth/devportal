@@ -57,20 +57,24 @@
                 </md-card-actions> 
               </md-card> 
             </div> 
-            <div>
-
-              </div>
+            <p>
+              {{posts}}
+              </p>
           </div>
 
 </template>
 
 <script>
+import axios from 'axios';
+
+import rssparser from 'rss-parser'
 
 export default {
   name: 'home',
   data() {
     return {
       msg: 'Developers',
+      posts: [],
       services: {
         "cdn": {
           name: "Client CLI",
@@ -214,6 +218,25 @@ export default {
       rss: {}
 
     }
+  },
+  created() {
+    axios.get(`http://blinkmobile.com.au/BlinkMobileDeveloperBlogRSSFeed?format=feed`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.posts = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
+    // async / await version (created() becomes async created())
+    //
+    // try {
+    //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    //   this.posts = response.data
+    // } catch (e) {
+    //   this.errors.push(e)
+    // }
   }
 }
 </script>
@@ -293,6 +316,7 @@ a {
   width: 200px;
   display: table-cell; 
   vertical-align: bottom;
+  padding-bottom: 5px;
 }
 
 #headerWrapper{
